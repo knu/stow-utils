@@ -1,9 +1,31 @@
 #!/bin/sh
 
+VERSION=0.1.0
+
 target="$(cd .. && pwd)"
 stowdir="$(pwd)"
 no=
 verbose=
+
+version () {
+    cat <<EOF
+unstow version $VERSION
+EOF
+}
+
+usage () {
+    version
+    cat <<EOF
+Usage: $0 [OPTION ...] PACKAGE ...
+  -n              Do not actually make changes
+  -d DIR          Set stow dir to DIR (default is current dir)
+  -t DIR          Set target to DIR (default is parent of stow dir)
+  -v              Be verbose
+  -V              Show Stow version number
+  -h              Show this help
+EOF
+    exit 64
+}
 
 while getopts fnvt:d: OPTION; do
     case "$OPTION" in
@@ -21,6 +43,16 @@ while getopts fnvt:d: OPTION; do
             ;;
         v)
             verbose=t
+            ;;
+        h)
+            usage
+            ;;
+        V)
+            version
+            exit 0
+            ;;
+        *)
+            usage
             ;;
     esac
 done
