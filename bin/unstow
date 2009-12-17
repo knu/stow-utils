@@ -8,8 +8,10 @@ no=
 verbose=
 
 version () {
+    stow_version="$(stow -V 2>/dev/null)"
+
     cat <<EOF
-unstow version $VERSION
+unstow version $VERSION / ${stow_version-stow(1) not found}
 EOF
 }
 
@@ -21,7 +23,7 @@ Usage: $0 [OPTION ...] PACKAGE ...
   -d DIR          Set stow dir to DIR (default is current dir)
   -t DIR          Set target to DIR (default is parent of stow dir)
   -v              Be verbose
-  -V              Show Stow version number
+  -V              Show Unstow and Stow version numbers
   -h              Show this help
 EOF
     exit 64
