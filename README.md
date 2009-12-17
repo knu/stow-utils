@@ -4,7 +4,7 @@ stow-utils
 Sinopsys
 --------
 
-* unstow - unstows an application much faster than stow -D
+* unstow - unstows packages much faster than stow -D
 	
 License
 -------
