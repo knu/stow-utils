@@ -73,7 +73,7 @@ for package; do
             fi
 
             if [ -z "$no" ]; then
-                rm "$path"
+                rm -- "$path"
             fi
         else
             echo "leaving \`$path'"
