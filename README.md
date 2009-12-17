@@ -5,7 +5,12 @@ Sinopsys
 --------
 
 * unstow - unstows packages much faster than stow -D
-	
+
+See Also
+--------
+
+* GNU Stow: http://www.gnu.org/software/stow/
+
 License
 -------
 
