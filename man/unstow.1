@@ -21,6 +21,12 @@ searches a package directory for stowed files while
 .Xr stow 1
 searches the target directory for matching symlinks.
 .Pp
+.Sh CAVEATS
+.Nm
+does not check if a symlink to be removed points to a file of the
+named package, so please double check if you are specifying the
+correct package.
+.Pp
 .Sh OPTIONS
 The following command line arguments are supported:
 .Pp
@@ -51,6 +57,6 @@ Set target to
 .Sh HISTORY
 The
 .Nm
-utility was written around 2008 and first released on December 2009.
+utility was written in around 2008 and first released on December 2009.
 .Sh AUTHORS
 .An Akinori MUSHA Aq knu@iDaemons.org
