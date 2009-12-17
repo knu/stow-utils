@@ -59,6 +59,11 @@ done
 
 shift $(($OPTIND - 1))
 
+if [ $# -eq 0 ]; then
+    echo "$0: No packages named"
+    usage
+fi
+
 for package; do
     (cd "$stowdir/$package" && find .) | while read file; do
         path="$target/${file#./}"
