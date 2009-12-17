@@ -1,0 +1,50 @@
+#!/bin/sh
+
+target="$(cd .. && pwd)"
+stowdir="$(pwd)"
+no=
+verbose=
+
+while getopts fnvt:d: OPTION; do
+    case "$OPTION" in
+        t)
+            target="$(cd "$OPTARG" && pwd)"
+            ;;
+        d)
+            stowdir="$(cd "$OPTARG" && pwd)"
+            ;;
+        f)
+            force=t
+            ;;
+        n)
+            no=t
+            ;;
+        v)
+            verbose=t
+            ;;
+    esac
+done
+
+shift $(($OPTIND - 1))
+
+for package; do
+    (cd "$stowdir/$package" && find .) | while read file; do
+        path="$target/$(expr "$file" : '\./\(.*\)')"
+
+        if [ ! -e "$path" -a ! -L "$path" ]; then
+            continue
+        fi
+
+        if [ -n "$force" -o -L "$path" ]; then
+            if [ -n "$no" -o -n "$verbose" ]; then
+                echo "removing \`$path'"
+            fi
+
+            if [ -z "$no" ]; then
+                rm "$path"
+            fi
+        else
+            echo "leaving \`$path'"
+        fi
+    done
+done
