@@ -1,0 +1,56 @@
+.\"
+.Dd December 17, 2009
+.Dt UNSTOW 1
+.Sh NAME
+.Nm unstow
+.Nd unstow packages much faster than stow -D
+.Sh SYNOPSIS
+.Nm
+.Op Fl x Ar diff_flags
+.Op Fl X Ar sdiff_flags
+.Ar source
+.Ar destination
+.Sh DESCRIPTION
+The
+.Nm
+command is a utility to unstow packages.  It performs much faster than
+.Dq Cm stow Fl D
+because
+.Nm
+searches a package directory for stowed files while
+.Xr stow 1
+searches the target directory for matching symlinks.
+.Pp
+.Sh OPTIONS
+The following command line arguments are supported:
+.Pp
+.Bl -tag -width "-t target" -compact
+.It Fl h
+Show the help screen and exit.
+.Pp
+.It Fl V
+Show Unstow and Stow version numbers and exit.
+.Pp
+.It Fl n
+Do not actually make changes.
+.Pp
+.It Fl v
+Be verbose.
+.Pp
+.It Fl d Ar DIR
+Set stow dir to
+.Ar DIR
+(default is current dir).
+.Pp
+.It Fl t Ar DIR
+Set target to
+.Ar DIR
+(default is parent of stow dir).
+.Sh SEE ALSO
+.Xr stow 1 ,
+.Sh HISTORY
+The
+.Nm
+utility was written around 2008 and first released on December 2009.
+.Sh AUTHORS
+.An Akinori MUSHA Aq knu@iDaemons.org
