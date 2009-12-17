@@ -61,7 +61,7 @@ shift $(($OPTIND - 1))
 
 for package; do
     (cd "$stowdir/$package" && find .) | while read file; do
-        path="$target/$(expr "$file" : '\./\(.*\)')"
+        path="$target/${file#./}"
 
         if [ ! -e "$path" -a ! -L "$path" ]; then
             continue
