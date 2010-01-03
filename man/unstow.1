@@ -6,8 +6,9 @@
 .Nd unstow packages much faster than stow -D
 .Sh SYNOPSIS
 .Nm
-.Op Fl x Ar diff_flags
-.Op Fl X Ar sdiff_flags
+.Op Fl nv
+.Op Fl d Ar stow_dir
+.Op Fl t Ar target_dir
 .Ar source
 .Ar destination
 .Sh DESCRIPTION
@@ -53,7 +54,7 @@ Set target to
 .Ar DIR
 (default is parent of stow dir).
 .Sh SEE ALSO
-.Xr stow 1 ,
+.Xr stow 1
 .Sh HISTORY
 The
 .Nm
