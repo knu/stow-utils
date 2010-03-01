@@ -1,7 +1,7 @@
 stow-utils
 ==========
 
-Sinopsys
+Synopsis
 --------
 
 * unstow - unstows packages much faster than stow -D
